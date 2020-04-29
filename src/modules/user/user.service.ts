@@ -32,7 +32,7 @@ export class UserService {
 
     }
 
-    async getAll(): Promise<UserDto> {
+    async getAll(): Promise<UserDto[]> {
 
         const users: User[] = await this._userRepository.find({
             where: { status: 'ACTIVE' },

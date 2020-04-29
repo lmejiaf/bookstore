@@ -15,7 +15,7 @@ export class UserController {
     }
 
     @Get()
-    async getUsers(): Promise<UserDto> {
+    async getUsers(): Promise<UserDto[]> {
         const users = await this._userService.getAll();
         return users;
     }
@@ -28,7 +28,7 @@ export class UserController {
 
     @Patch(':id')
     async updateUser(@Param('id', ParseIntPipe) id: number, @Body() user: User) {
-        const updatedUser = await this._userService.update(id, user);
+        await this._userService.update(id, user);
         return true;
     }
 
@@ -37,6 +37,6 @@ export class UserController {
         await this._userService.delete(id);
         return true;
     }
-    q
+
 
 }
